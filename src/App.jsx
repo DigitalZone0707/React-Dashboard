@@ -18,8 +18,20 @@ import Buttons from "./pages/UiElements/Buttons";
 import Calendar from "./pages/Calendar";
 import Chart from "./pages/Chart";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+
 function App() {
   const [loading, setLoading] = useState(true);
+  const [colorMode, setColorMode] = useLocalStorage("color-theme", "light");
+
+  useEffect(() => {
+    const className = "dark";
+    const bodyClass = window.document.body.classList;
+
+    colorMode === "dark"
+      ? bodyClass.add(className)
+      : bodyClass.remove(className);
+  }, [colorMode]);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);

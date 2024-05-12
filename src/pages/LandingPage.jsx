@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../images/logo/logo-dark.svg";
+import LogoDark from "../images/logo/logo-dark.svg";
+import Logo from "../images/logo/logo.svg";
 
 const LandingPage = () => {
   return (
@@ -10,7 +11,8 @@ const LandingPage = () => {
           <div className="mx-auto w-full max-w-[600px]">
             <div className="text-center">
               <NavLink className="mx-auto mb-10 inline-flex" to="/">
-                <img src={Logo} alt="Logo" />
+                <img className="hidden dark:block" src={Logo} alt="Logo" />
+                <img className="dark:hidden" src={LogoDark} alt="Logo" />
               </NavLink>
               <h1 className="mb-2.5 text-3xl font-black text-black dark:text-white lg:text-4xl xl:text-[50px] xl:leading-[60px]">
                 Coming Soon
